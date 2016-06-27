@@ -31,6 +31,7 @@ C c;
 闲话休叙，我们来直接上代码：（常规写法）
 
 #1 编写一个类：
+
 ```java
 public class Test3 {
     public Test3() {
