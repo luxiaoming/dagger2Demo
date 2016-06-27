@@ -2,6 +2,10 @@
 
 
 ----------
+需要交流，联系微信：code_gg_boy
+更多精彩，时时关注微信公众号code_gg_home
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/0.jpg)
 
 没有更多开场白，直接说下我对它的理解。
 
@@ -273,10 +277,9 @@ public class MainActivity extends AppCompatActivity {
 
 如上，写完啦。。
 
-实战地方，可以参照https://github.com/gzsll/TLint来阅读啦，收工，需要交流，联系微信：code_gg_boy
+实战地方，可以参照 https://github.com/gzsll/TLint 来阅读啦，收工。
+需要交流，联系微信：code_gg_boy
 更多精彩，时时关注微信公众号code_gg_home
-
-二维码长这样子啦：
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/0.jpg)
 
