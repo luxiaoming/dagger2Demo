@@ -217,43 +217,67 @@ public class MainActivity extends AppCompatActivity {
 为什么要自定义标记呢？这个标记不是使用@Scope注释的哦，是使用@Qualifier 标记的，它的目标是，为了区分如果同时返回类型一样，比如构造男孩，女孩的基本属性，性别和名字时候，获取男孩和女孩都是一个对象，我们该如何区分呢，这个就是关键啦。说这么多，真心很烦，直接栗子来啦。
 
 这里稍安勿躁，先来看相同效果的另一个注释，@Name，这个是Dagger2自带的一个让区分，效果如下：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/7/1.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/7/2.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/7/3.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/7/4.png)
+
 
 这里@Name可以简单的一个使用方式，就是它不是区分对象，而是限制使用时候必须加入这个注释，否则报错，目的就是让使用者注意是否使用正确了。
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/7/5.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/7/6.png)
 
+
 我们使用自己的注释再来一遍：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/8/1.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/8/2.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/8/3.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/8/4.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/8/5.png)
+
 
 对比两种方式，我们发现使用@Name的时候，后面的注释名字会敲错，而我们第二种方式呢，则不会耶，so。。。
 
 我们看下自定义的标记，作为限制出错，让强制标注的例子。
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/9/1.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/9/2.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/9/3.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/9/4.png)
+
 
 #6 子组件（公共组件）
 这个出现的目的是为了如果有一个组件，是每次创建实例提供给别人，而恰好其他组件（有多个）里面有需要它，如果只有一个，我们就用依赖搞定啦。那么它就可以定义成子组件，谁需要在谁的组件里面加一下，具体看例子：
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/10/1.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/10/2.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/10/3.png)
+
 
 
 如上，写完啦。。
 
 实战地方，可以参照https://github.com/gzsll/TLint来阅读啦，收工，需要交流，联系微信：code_gg_boy
-更多精彩，时时关注微信公众号code_gg_home二维码长这样子啦：
+更多精彩，时时关注微信公众号code_gg_home
+
+二维码长这样子啦：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/0.jpg)
 
 
