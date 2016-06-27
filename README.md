@@ -54,8 +54,11 @@ public class MainActivity extends AppCompatActivity {
 ----------
 
  - 如果我们改为使用Dagger2的方式的话，则可以写成如下方式：
+
 #1 创建一个类
+
 使用了注解方式，使得Dagger2能找到它。
+
 ```java
 public class Test3 {
     //这里可以看到加入了注解方式
