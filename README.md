@@ -94,74 +94,121 @@ public class MainActivity extends AppCompatActivity {
 我先说下Dagger2的注释思路：关键的点是@Component，这个是个连接器，用来连接提供方和使用方的，所以它是桥梁。它使用在组件里面标记使用的Module（标记用到了哪个Module，主要是看使用方需要哪些对象进行构造，然后将它的提供方@module写在这里）	然后我们写入一个void inject(MainActivity activity); 这里后面的参数，就是我们的使用方了。如此一来，我们在使用的地方，使用类似这种方式（DaggerMainActivityComponent.builder().build().inject(this);）的动作，将使用方类里面的标记 为@Inject的类初始化掉，完成自动初始化的动作。
 
 结构如下：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/1459515096_5841.png)
 
+
 为了更好的来学习它，我们来依次看看各种使用情况。
+
 #1 常规使用方法
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/1/1.png)
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/1/2.png)
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/1/3.png)
 
+
 直接感受下，如何？
+
 #2 带一个参数的效果
 
+----------
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/2/1.png)
+
+----------
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/2/2.png)
+
+----------
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/2/3.png)
 
 ----------
 我们来看一个代码段，当我们创建两个实例的时候，发现地址是独立的。
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/3/1.png)
+
 如果我们想要一样的地址呢？加上一句话，具体如下：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/3/2.png)
+
 效果便是两个共用实例啦。
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/3/3.png)
 
+
 #3 换种经常使用的方式
+
 将提供的构造，放入@module里面，具体效果如下：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/4/1.png)
+
 去掉标记的@singleton后
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/4/2.png)
+
 效果变成独立的啦
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/4/3.png)
+
 
 #4 依赖一个组件的时候
 
 有时我们需要依赖一个组件，这个最常见的用法是，我们App实例里面提供了比如获取sharepreference的实例，和比如现在代码里面的LocationManager的实例，我们Activity里面需要这些实例，我们该如何来做呢？看效果：
-
 1：一个AndroidModule 模块标记
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/1.png)
+
 这个模块属于AndroidcationComponent 组件里面
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/2.png)
+
 这里有个关键点，就是子组件需要这个里面的某个实例的时候，这里需要使用一个接口，将需要的实例做一个返回动作。这里是LocationManager这一行。
 
 我们的子组件的代码如下：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/3.png)
+
 对应的Cmodule代码如下：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/4.png)
+
 再来看下Test3的代码当前情况：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/5.png)
+
 使用的地方：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/6.png)
+
 
 
 ----------
 
-
 细心的你会发现这里多了一个注释了，@PerActivity，它是个什么鬼呢？
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/7.png)
+
 这里我们看到它是使用了@Scope的一个注释，这个注释的意思就是作用域，在作用域内保持单例，可以直接理解为单例即可。
 为什么要新增一个呢，主要是因为各个组件需要独立出来，因此如果是依赖关系，则需要各自在不同的注释作用域里面。
 我们来看下在Cmodule里面，加上@perActivity注释后的效果：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/8.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/9.png)
+
 如果去掉呢？
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/10.png)
 
+
 我们突然发现，它和单例的注释起的作用一样啊。so。。。是不是发现什么啦。
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/5/11.png)
-因此我们得出一个结论，这里@Singleton 就是一个普通的作用域通道，使用了作用域@Scope注释的代码，会变成单例模式。为了验证我们的思路，作如下测试：
+
+因此我们得出一个结论，这里@Singleton
+就是一个普通的作用域通道，使用了作用域@Scope注释的代码，会变成单例模式。为了验证我们的思路，作如下测试：
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/6/1.png)
+
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/6/2.png)
 
 我们将之前的@Singleton用新建的这个替换掉，验证两次的生成代码，发现一模一样，一模一样，一模一样，so。。。 就是这个样子啦。
