@@ -280,7 +280,13 @@ public class MainActivity extends AppCompatActivity {
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/10/3.png)
 
+#7 懒加载方式
 
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/11/1.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/11/2.png)
+
+再加一点，生成的代码位置在\dagger2Demo\app\build\generated\source\apt\debug\com\xm\dagger2demo，可以直接看生成代码，更好理解
 
 如上，写完啦。。
 
