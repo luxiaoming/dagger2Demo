@@ -1,6 +1,6 @@
 #Dagger2图文完全教程
 
-
+BEGIN
 ----------
 
 本文属代码GG原创，非经本人同意，禁止转载。
@@ -325,6 +325,8 @@ public class MainActivity extends AppCompatActivity {
 再加一点，生成的代码位置在\dagger2Demo\app\build\generated\source\apt\debug\com\xm\dagger2demo，可以直接看生成代码，更好理解
 
 如上，写完啦。。
+
+[回到开始地方](#BEGIN)
 
 实战地方，可以参照 https://github.com/gzsll/TLint 来阅读啦，收工。
 需要交流，联系微信：code_gg_boy
