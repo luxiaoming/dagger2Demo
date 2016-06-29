@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
 
 #8 多个绑定方式
 
-##1 第一种方式
+####1 第一种方式
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/1.png)
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/2.png)
@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/8.png)
 
-##1 第二种方式
+####2 第二种方式
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/9.png)
 
