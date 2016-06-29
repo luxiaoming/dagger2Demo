@@ -286,6 +286,42 @@ public class MainActivity extends AppCompatActivity {
 
 ![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/11/2.png)
 
+#8 多个绑定方式
+
+##1 第一种方式
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/1.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/2.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/3.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/4.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/5.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/6.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/7.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/8.png)
+
+##1 第二种方式
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/9.png)
+
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/10.png)
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/11.png)
+
+这里需要注意的就是，在组件里面加入多个绑定的时候，module的里面必须要有一个是@IntoSet 这个作为第一个标记，否则会出错，可以多个@IntoSet标记。
+
+如果是列表类型的，则使用@ElementsIntoSet就ok了。
+
+![一个显示图](https://github.com/luxiaoming/dagger2Demo/raw/master/images/12/12.png)
+ 
+
+
 再加一点，生成的代码位置在\dagger2Demo\app\build\generated\source\apt\debug\com\xm\dagger2demo，可以直接看生成代码，更好理解
 
 如上，写完啦。。
