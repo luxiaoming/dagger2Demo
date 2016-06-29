@@ -326,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
 
 如上，写完啦。。
 
-[回到开始地方](#BEGIN)
+[回到开始地方](#begin)
 
 实战地方，可以参照 https://github.com/gzsll/TLint 来阅读啦，收工。
 需要交流，联系微信：code_gg_boy
