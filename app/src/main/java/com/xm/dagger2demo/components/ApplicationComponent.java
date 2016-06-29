@@ -1,5 +1,6 @@
 package com.xm.dagger2demo.components;
 
+import android.content.Context;
 import android.location.LocationManager;
 
 import com.xm.dagger2demo.DemoApplication;
@@ -16,10 +17,6 @@ import dagger.Component;
 @Component(modules = AndroidModule.class)
 public interface ApplicationComponent {
     void inject(DemoApplication application);
-
     LocationManager getLocationManager();
-
-    CommonComponent getCommonComponent();
-
-   // CommonComponent getCommonComponent(CommonModule commonModule);
+    Context getContext();
 }

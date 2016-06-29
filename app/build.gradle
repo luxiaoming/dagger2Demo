@@ -26,6 +26,6 @@ dependencies {
     compile 'com.android.support:design:24.0.0'
     //Dagger
     provided 'javax.annotation:javax.annotation-api:1.2'
-    compile 'com.google.dagger:dagger:2.0.2'
-    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.google.dagger:dagger:2.5'
+    apt 'com.google.dagger:dagger-compiler:2.5'
 }
